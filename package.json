@@ -4,7 +4,8 @@
   "description": "A Discord bot",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node index.ts"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,12 @@
   "author": "Dokthoror",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@types/node": "^14.14.9",
+    "ts-node": "^9.0.0",
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "discord.js": "^12.4.1"
+    "discord.js": "^12.4.1",
+    "dotenv": "^8.2.0"
   }
 }
