@@ -1,0 +1,21 @@
+{
+  "name": "maidrea_dicord-bot",
+  "version": "0.0.1",
+  "description": "A Discord bot",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dokthoror/Maidrea_Discord-bot/blob/main/LICENSE"
+  },
+  "author": "Dokthoror",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
