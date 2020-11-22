@@ -6,4 +6,4 @@ import { messageEvent } from './message'    // Message event, when the bot recei
 
 // Export the event handler
 // eventHandler is an array of functions with one optional parameter
-export const eventHandler: Array<{ name: string, run: (p?: any) => void }> = [readyEvent, messageEvent];
+export const eventsHandler: Array<{ name: string, run: (p?: any) => void }> = [readyEvent, messageEvent];
