@@ -1,0 +1,3 @@
+# Maidrea Discord bot
+
+---
