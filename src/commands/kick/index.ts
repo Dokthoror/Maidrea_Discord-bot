@@ -1,5 +1,6 @@
 // Import dependancies
-import { Message, PermissionResolvable } from 'discord.js';
+import { DiscordAPIError, Message, PermissionResolvable } from 'discord.js';
+import { readyEvent } from '../../events/ready';
 import { Command } from '../../modules/Command';
 import { Embed } from '../../modules/Embed';
 import { ErrorEmbed } from '../../modules/ErrorEmbed';
@@ -17,10 +18,16 @@ const permission: PermissionResolvable = 'KICK_MEMBERS';
 
 
 const run = (msg: Message, args: Array<string>) => {
-    console.log(args[0]);
+    if (args[0] && msg.mentions.members?.first() && args[0] == `<@!${msg.mentions.members?.first()?.id}>`) {
+        let member = msg.mentions.members.first()!;
+        let reason = 'Undefined';
+        if (args[0]) reason = args.slice(1).join(' ');
+        let embed: Embed | ErrorEmbed;
 
-    if (args[0] && msg.mentions.members && args[0] == `<@!${msg.mentions.members!.first()!.id}>`) {
-        msg.reply('ok');
+        member.kick(reason).catch((e: DiscordAPIError) => {
+            embed = new ErrorEmbed().setDescription(`Unable to kick ${member}: \`\`${e.message}\`\``);
+            msg.channel.send(embed);
+        })
     }
 }
 
