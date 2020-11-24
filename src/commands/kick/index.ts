@@ -8,7 +8,7 @@ import { ErrorEmbed } from '../../modules/ErrorEmbed';
 
 const name = 'kick';
 
-const description = 'kick the mentioned member with reasaon'
+const description = 'kick the mentioned member with specified reason'
 
 const howto = '<@member: required> <reason: optional>';
 
@@ -19,15 +19,21 @@ const permission: PermissionResolvable = 'KICK_MEMBERS';
 
 const run = (msg: Message, args: Array<string>) => {
     if (args[0] && msg.mentions.members?.first() && args[0] == `<@!${msg.mentions.members?.first()?.id}>`) {
-        let member = msg.mentions.members.first()!;
+        let memberToKick = msg.mentions.members.first()!;
         let reason = 'Undefined';
-        if (args[0]) reason = args.slice(1).join(' ');
+        if (args[1]) reason = args.slice(1).join(' ');
         let embed: Embed | ErrorEmbed;
 
-        member.kick(reason).catch((e: DiscordAPIError) => {
-            embed = new ErrorEmbed().setDescription(`Unable to kick ${member}: \`\`${e.message}\`\``);
+        memberToKick.kick(reason).then(kicked => {
+            embed = new Embed(msg.member!.displayColor)
+                .setAuthor(`${kicked.user.username} was banned !`, kicked.user.displayAvatarURL())
+                .addField('Moderator', msg.member!, true)
+                .addField('Reason', reason, true);
             msg.channel.send(embed);
-        })
+        }).catch((e: DiscordAPIError) => {
+            embed = new ErrorEmbed().setDescription(`Unable to kick ${memberToKick}: \`\`${e.message}\`\``);
+            msg.channel.send(embed);
+        });
     }
 }
 
