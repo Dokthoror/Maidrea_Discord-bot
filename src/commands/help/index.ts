@@ -22,8 +22,9 @@ const run = (msg: Message, args: Array<string>) => {
     if (args[0] && commandsHandler.find(el => el.name == args[0].toLowerCase())) {      // If the args corresponds to a known command,
         const command = commandsHandler.find(el => el.name == args[0].toLowerCase());   // will send specified help for this command
         embed
-            .setAuthor(`Voici la page de la commande ${args[0].toLowerCase()}`)
-            .addField(command!.description, `\`\`${command!.description}\`\``);
+            .setAuthor(`Here is the help for the ${args[0].toLowerCase()} command`)
+            .addField('Description', `\`\`${command!.description}\`\``)
+            .addField('How to use it', `\`\`${process.env.COMMAND_PREFIX}${command!.name} ${command!.howto}\`\``);
     }
 
     else {                                                                                                          // If no args or unknown command,
