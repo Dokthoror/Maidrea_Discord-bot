@@ -18,15 +18,15 @@ const permission: PermissionResolvable = 'KICK_MEMBERS';
 
 
 const run = (msg: Message, args: Array<string>) => {
+    let embed: Embed | ErrorEmbed;
     if (args[0] && msg.mentions.members?.first() && args[0] == `<@!${msg.mentions.members?.first()?.id}>`) {    // Verifies that the first argument is a mentionned member
         let memberToKick = msg.mentions.members.first()!;
         let reason = 'Undefined';                                                                               // If no reason given, sets it to 'Undefined'
         if (args[1]) reason = args.slice(1).join(' ');
-        let embed: Embed | ErrorEmbed;
 
         memberToKick.kick(reason).then(kicked => {                                                              // If member kicked successfully, sends confirmation
             embed = new Embed(msg.member!.displayColor)
-                .setAuthor(`${kicked.user.username} was banned !`, kicked.user.displayAvatarURL())
+                .setAuthor(`${kicked.user.username} was kicked !`, kicked.user.displayAvatarURL())
                 .addField('Moderator', msg.member!, true)
                 .addField('Reason', reason, true);
             msg.channel.send(embed);
@@ -34,6 +34,10 @@ const run = (msg: Message, args: Array<string>) => {
             embed = new ErrorEmbed().setDescription(`Unable to kick ${memberToKick}: \`\`${e.message}\`\``);
             msg.channel.send(embed);
         });
+    }
+    else {                                                                                                      // If no member was given, sends an error
+        embed = new ErrorEmbed().setDescription('No member to kick, please mention one.');
+        msg.channel.send(embed);
     }
 }
 
