@@ -9,7 +9,7 @@ const name = "awooify";
 
 const description = "awooify someones avatar";
 
-const howto = "<@member: required>"
+const howto = "<@member: optionnal>"
 
 const type = "FUN";
 
@@ -19,14 +19,14 @@ const run = async (msg: Message, args: Array<string>) => {
     const person = msg.mentions.users.first() || msg.author;
     const message = await msg.channel.send("Generating...");
 
-     fetch(`https://nekobot.xyz/api/imagegen?type=awooify&url=${person.displayAvatarURL({dynamic: true, size: 1024})}`)
+    fetch(`https://nekobot.xyz/api/imagegen?type=awooify&url=${person.displayAvatarURL({ dynamic: true, size: 1024 })}`)
         .then((res) => res.json())
         .then((body) => {
-            console.log(body)
-            let embed = new MessageEmbed()
-            .setImage(body.message)
-            .setColor("#9cc4e4")
-            message.edit(embed)
+            // console.log(body)
+            let embed = new Embed(msg.guild!.members.cache.get(person.id)!.displayColor)
+                .setAuthor(`${person.username} has been awooified !`)
+                .setImage(body.message);
+            message.edit(embed);
         })
 }
 
