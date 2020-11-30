@@ -14,12 +14,14 @@
   "author": "Dokthoror",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@prisma/cli": "^2.12.1",
     "@types/node": "^14.14.9",
     "@types/node-fetch": "^2.5.7",
     "ts-node": "^9.0.0",
     "typescript": "^4.1.2"
   },
   "dependencies": {
+    "@prisma/client": "^2.12.1",
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
