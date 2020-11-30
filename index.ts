@@ -10,7 +10,7 @@ import { eventsHandler } from './src/events/eventsHandler';
 dotenv.config();
 
 
-// Connect to MySQL server
+// Initiates a new PrismaClient instance
 const prisma = new PrismaClient();
 
 
