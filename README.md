@@ -13,7 +13,14 @@ Maidrea is an open source Discord bot written in **Typescript** and using **disc
 Things to do :
 
 - [x] build a basic bot
-- [ ] others (in writing)
+- [ ] staff application
+- [ ] anime things
+- [ ] moderation commands
+- [ ] user/guild info
+- [ ] avatar and emoji management
+- [ ] xp and level related
+- [ ] graphics (maybe)
+- [ ] music (non priority)
 
 ## How to help
 
