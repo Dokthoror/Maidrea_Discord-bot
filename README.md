@@ -25,11 +25,13 @@ Things to do :
 ## How to help
 
 1. Fork the project
-2. Create a ``.env`` file with two variables :
+2. Run ``npm install`` to install dependancies
+3. Create a ``.env`` file with two variables :
     - ``COMMAND_PREFIX`` : contains the bot's prefix for the commands
     - ``TOKEN`` : the bot's token (KEEP IT SECRET)
-3. Add a branch for your updates
-4. When finished, make a pull request for this repository
+4. Create a MySQL server and run the ``./db/bot_db_setup.sql`` script with root account (it will create the ``maidrea_bot`` user and the ``maidrea_bot_db`` database)
+5. Add a branch for your updates
+6. When finished, make a pull request for this repository
 
 Then I will check your code and update the bot.
 
