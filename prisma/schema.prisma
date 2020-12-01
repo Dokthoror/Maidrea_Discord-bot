@@ -7,6 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model prisma_test {
-  test Boolean @id
+model guilds {
+  id                Int     @id
+  has_mute          Boolean
+  mute_role         Int?
+  has_xp            Boolean
+  staff_application Boolean
+  users             users[]
+}
+
+model users {
+  id            Int
+  guild_id      Int
+  is_muted      Boolean
+  level         Int
+  xp            Int
+  previous_role Int
+  guilds        guilds  @relation(fields: [guild_id], references: [id])
+
+  @@id([id, guild_id])
+  @@index([guild_id], name: "guild_id")
 }
