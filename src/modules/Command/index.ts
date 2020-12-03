@@ -1,22 +1,33 @@
 // Import dependancies
-import { Message, PermissionResolvable } from "discord.js";
+import {Message, PermissionResolvable} from 'discord.js';
 
 
-// Export Command class, which will create an instance for each command of the bot
+/**
+ * @class Command
+ */
 export class Command {
     name: string;
     description: string;
     type: string;
     howto: string;
     permission: PermissionResolvable;
-    run: (m: Message, a: Array<string>) => void;
+	run: (m: Message, a: Array<string>) => void;
 
-    constructor(name: string, description: string, type: string, howto: string, permission: PermissionResolvable, run: (p: Message, a: Array<string>) => void) {
-        this.name = name;
-        this.description = description;
-        this.type = type;
-        this.howto = howto;
-        this.permission = permission;
-        this.run = run;
-    }
+	/**
+	 * Create a command
+	 * @param {string} name - The name of the command
+	 * @param {string} description - The description of the command
+	 * @param {string} type - The type of the command
+	 * @param {string} howto - How to use the command
+	 * @param {PermissionResolvable} permission - The minimum required permission to run the command
+	 * @param {void} run - The function of the command
+	 */
+	constructor(name: string, description: string, type: string, howto: string, permission: PermissionResolvable, run: (p: Message, a: Array<string>) => void) {
+		this.name = name;
+		this.description = description;
+		this.type = type;
+		this.howto = howto;
+		this.permission = permission;
+		this.run = run;
+	}
 }

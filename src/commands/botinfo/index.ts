@@ -1,13 +1,13 @@
 // Import dependancies
-import { Message, PermissionResolvable } from 'discord.js';
-import { Command } from '../../modules/Command';
-import { Embed } from '../../modules/Embed';
-import { bot } from '../../../index';
+import {Message, PermissionResolvable} from 'discord.js';
+import {Command} from '../../modules/Command';
+import {Embed} from '../../modules/Embed';
+import {bot} from '../../../index';
 
 
 const name = 'botinfo';
 
-const description = 'sends information about me'
+const description = 'sends information about me';
 
 const howto = '';
 
@@ -17,7 +17,7 @@ const permission: PermissionResolvable = 'SEND_MESSAGES';
 
 
 const run = (msg: Message, args: Array<string>) => {
-    let embed = new Embed(msg.guild!.members.cache.get(bot.user!.id)!.displayColor)
+    const embed = new Embed(msg.guild!.members.cache.get(bot.user!.id)!.displayColor)
         .setAuthor('Here are my informations', bot.user!.displayAvatarURL())
         .addField('Name', bot.user!.username, true)
         .addField('Prefix', process.env.COMMAND_PREFIX, true)
@@ -30,7 +30,7 @@ const run = (msg: Message, args: Array<string>) => {
         .setDescription('Join the support server! (Not open now)')
         .setThumbnail(msg.guild!.iconURL()!);
     msg.channel.send(embed);
-}
+};
 
 
 // Export ping command
