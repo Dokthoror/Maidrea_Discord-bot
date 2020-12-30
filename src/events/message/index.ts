@@ -1,6 +1,6 @@
 // Import the dependancies
 import { Message } from 'discord.js';
-import { ErrorEmbed } from '../../modules/ErrorEmbed';
+import ErrorEmbed from '../../modules/ErrorEmbed';
 import commandsHandler from '../../commands/commandsHandler';
 
 // Export 'message' event, when the bot receives a message

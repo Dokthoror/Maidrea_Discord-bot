@@ -1,8 +1,8 @@
 // Import dependancies
 import { DiscordAPIError, Message, PermissionResolvable } from 'discord.js';
-import { Command } from '../../modules/Command';
-import { Embed } from '../../modules/Embed';
-import { ErrorEmbed } from '../../modules/ErrorEmbed';
+import Command from '../../modules/Command';
+import Embed from '../../modules/Embed';
+import ErrorEmbed from '../../modules/ErrorEmbed';
 
 const name = 'kick';
 

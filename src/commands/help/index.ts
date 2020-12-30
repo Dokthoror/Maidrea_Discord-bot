@@ -1,7 +1,7 @@
 // Import dependancies
 import { Message, PermissionResolvable } from 'discord.js';
-import { Command } from '../../modules/Command';
-import { Embed } from '../../modules/Embed';
+import Command from '../../modules/Command';
+import Embed from '../../modules/Embed';
 import commandsHandler from '../commandsHandler';
 
 const name = 'help';

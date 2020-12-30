@@ -1,6 +1,6 @@
 // Import dependancies
 import { Message, PermissionResolvable } from 'discord.js';
-import { Command } from '../../modules/Command';
+import Command from '../../modules/Command';
 
 const name = 'ping';
 

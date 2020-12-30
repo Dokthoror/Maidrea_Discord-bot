@@ -1,8 +1,8 @@
 // Import dependencies
 import { Message, PermissionResolvable } from 'discord.js';
 import fetch from 'node-fetch';
-import { Command } from '../../modules/Command';
-import { Embed } from '../../modules/Embed';
+import Command from '../../modules/Command';
+import Embed from '../../modules/Embed';
 
 const name = 'baguetter';
 
