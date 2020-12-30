@@ -26,7 +26,7 @@ class Command {
 	 * @param {PermissionResolvable} _permission - The minimum required permission to run the command
 	 * @param {void} run - The function of the command
 	 */
-	private constructor(name: string, description: string, type: string, howto: string, permission: PermissionResolvable, run: (p: Message, a: Array<string>) => void) {
+	public constructor(name: string, description: string, type: string, howto: string, permission: PermissionResolvable, run: (p: Message, a: Array<string>) => void) {
 		this._name = name;
 		this._description = description;
 		this._type = type;
