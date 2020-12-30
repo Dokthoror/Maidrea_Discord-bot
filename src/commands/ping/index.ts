@@ -1,7 +1,6 @@
 // Import dependancies
-import {Message, PermissionResolvable} from 'discord.js';
-import {Command} from '../../modules/Command';
-
+import { Message, PermissionResolvable } from 'discord.js';
+import { Command } from '../../modules/Command';
 
 const name = 'ping';
 
@@ -13,11 +12,10 @@ const type = 'MISCELLENAOUS';
 
 const permission: PermissionResolvable = 'SEND_MESSAGES';
 
-
 const run = (msg: Message, args: Array<string>) => {
-    msg.reply('pong !');
+	msg.reply('pong !');
 };
 
-
 // Export ping command
-export const pingCommand = new Command(name, description, type, howto, permission, run);
+const pingCommand = new Command(name, description, type, howto, permission, run);
+export default pingCommand;

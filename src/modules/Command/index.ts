@@ -1,16 +1,20 @@
 // Import dependancies
-import {Message, PermissionResolvable} from 'discord.js';
-
+import { Message, PermissionResolvable } from 'discord.js';
 
 /**
  * @class Command
  */
-export class Command {
+class Command {
     name: string;
+
     description: string;
+
     type: string;
+
     howto: string;
+
     permission: PermissionResolvable;
+
 	run: (m: Message, a: Array<string>) => void;
 
 	/**
@@ -31,3 +35,5 @@ export class Command {
 		this.run = run;
 	}
 }
+
+export default Command;
