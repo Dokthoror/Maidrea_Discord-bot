@@ -12,7 +12,7 @@ const type = 'MISCELLENAOUS';
 
 const permission: PermissionResolvable = 'SEND_MESSAGES';
 
-const run = (msg: Message, args: Array<string>) => {
+const run = async (msg: Message, args: Array<string>) => {
 	msg.reply('pong !');
 };
 

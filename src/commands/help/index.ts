@@ -14,7 +14,7 @@ const type = 'MISCELLENAOUS';
 
 const permission: PermissionResolvable = 'SEND_MESSAGES';
 
-const run = (msg: Message, args: Array<string>) => {
+const run = async (msg: Message, args: Array<string>) => {
 	const embed = new Embed(msg.member!.displayColor);
 
 	if (args[0] && commandsHandler.find((el) => el.name === args[0].toLowerCase())) { // If the args corresponds to a known command,

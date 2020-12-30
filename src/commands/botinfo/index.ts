@@ -14,7 +14,7 @@ const type = 'MISCELLENAOUS';
 
 const permission: PermissionResolvable = 'SEND_MESSAGES';
 
-const run = (msg: Message, args: Array<string>) => {
+const run = async (msg: Message, args: Array<string>) => {
 	const embed = new Embed(msg.guild!.members.cache.get(bot.user!.id)!.displayColor)
 		.setAuthor('Here are my informations', bot.user!.displayAvatarURL())
 		.addField('Name', bot.user!.username, true)

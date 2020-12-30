@@ -6,7 +6,7 @@ import commandsHandler from '../../commands/commandsHandler';
 // Export 'message' event, when the bot receives a message
 const messageEvent = {
 	name: 'message',
-	run: (msg: Message) => {
+	run: async (msg: Message) => {
 		// If the message is from a bot or a private channel, does nothing
 		if (msg.author.bot || msg.channel.type === 'dm') return;
 

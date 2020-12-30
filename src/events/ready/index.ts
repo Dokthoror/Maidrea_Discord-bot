@@ -4,7 +4,7 @@ import bot from '../../../index';
 // Export 'ready' event, when the bot logs in
 const readyEvent = {
 	name: 'ready',
-	run: () => {
+	run: async () => {
 		console.log(`Logged in as ${bot.user!.username}`);
 	},
 };
