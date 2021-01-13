@@ -24,7 +24,7 @@ Things to do :
 
 ## How to help
 
-1. Clone the project
+1. Fork the project
 2. Run ``npm install`` to install dependancies
 3. Create a ``.env`` file with two variables :
     - ``COMMAND_PREFIX`` : contains the bot's prefix for the commands
